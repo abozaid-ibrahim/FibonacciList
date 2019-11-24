@@ -13,7 +13,6 @@
 		6C1A5F9A238ADE6C002F0FA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C1A5F99238ADE6C002F0FA1 /* Assets.xcassets */; };
 		6C1A5F9D238ADE6C002F0FA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C1A5F9B238ADE6C002F0FA1 /* LaunchScreen.storyboard */; };
 		6C1A5FA8238ADE6C002F0FA1 /* FibonacciNumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1A5FA7238ADE6C002F0FA1 /* FibonacciNumbersTests.swift */; };
-		6C1A5FB6238ADF2D002F0FA1 /* FibonacciTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1A5FB2238ADF29002F0FA1 /* FibonacciTableViewTests.swift */; };
 		6C1A5FB8238ADFB7002F0FA1 /* FibonacciViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1A5FB7238ADFB7002F0FA1 /* FibonacciViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		6C1A5FA3238ADE6C002F0FA1 /* FibonacciNumbersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FibonacciNumbersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C1A5FA7238ADE6C002F0FA1 /* FibonacciNumbersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciNumbersTests.swift; sourceTree = "<group>"; };
 		6C1A5FA9238ADE6C002F0FA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C1A5FB2238ADF29002F0FA1 /* FibonacciTableViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciTableViewTests.swift; sourceTree = "<group>"; };
 		6C1A5FB7238ADFB7002F0FA1 /* FibonacciViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FibonacciViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				6C1A5FA7238ADE6C002F0FA1 /* FibonacciNumbersTests.swift */,
-				6C1A5FB2238ADF29002F0FA1 /* FibonacciTableViewTests.swift */,
 				6C1A5FA9238ADE6C002F0FA1 /* Info.plist */,
 			);
 			path = FibonacciNumbersTests;
@@ -237,7 +234,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C1A5FB6238ADF2D002F0FA1 /* FibonacciTableViewTests.swift in Sources */,
 				6C1A5FA8238ADE6C002F0FA1 /* FibonacciNumbersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
