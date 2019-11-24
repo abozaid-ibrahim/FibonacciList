@@ -11,9 +11,18 @@ import UIKit
 final class FibonacciTableController: UITableViewController {
     private var fibonacciList: [UInt64] = []
 
+    var viewModel: FibonacciTableViewModelType! = FibonacciTableViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        fibonacciList.append(1)
+        loadData()
+    }
+    private func loadData(){
+        viewModel.getFibonacci(from: 0, to: Int64.max, callback: { [weak self] result in
+            self?.fibonacciList = result
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+        })
     }
 }
 
