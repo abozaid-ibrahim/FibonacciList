@@ -22,7 +22,7 @@ class FibonacciNumbersTests: XCTestCase {
 
     func testFibonacciOfZero() {
         let oneElementExpectation = XCTestExpectation(description: "zero")
-        viewModel.getFibonacci(from: 0, to: Int64(0), callback: { fibonacciList in
+        viewModel.getFibonacci(of: 0, callback: { fibonacciList in
             XCTAssert(fibonacciList.count == 1)
             XCTAssertEqual(fibonacciList[0], 0)
             oneElementExpectation.fulfill()
@@ -32,7 +32,7 @@ class FibonacciNumbersTests: XCTestCase {
 
     func testFibonacciOfOne() {
         let twoElementExpectation = XCTestExpectation(description: "one")
-        viewModel.getFibonacci(from: 0, to: Int64(1), callback: { fibonacciList in
+        viewModel.getFibonacci(of: 1, callback: { fibonacciList in
             XCTAssert(fibonacciList.count == 2)
             XCTAssertEqual(fibonacciList[1], 1)
             twoElementExpectation.fulfill()
@@ -42,7 +42,7 @@ class FibonacciNumbersTests: XCTestCase {
 
     func testValidFibonacci() {
         let randomElementExpectation = XCTestExpectation(description: "many")
-        viewModel.getFibonacci(from: 0, to: Int64(10), callback: { fibonacciList in
+        viewModel.getFibonacci(of: 10, callback: { fibonacciList in
             XCTAssert(fibonacciList.count == 11)
             XCTAssertEqual(fibonacciList[10], 55)
             randomElementExpectation.fulfill()
@@ -50,12 +50,4 @@ class FibonacciNumbersTests: XCTestCase {
         wait(for: [randomElementExpectation], timeout: 10.0)
     }
 
-//    func testOutOfRangeNumbers() {
-//        let randomElementExpectation = XCTestExpectation(description: "outofrange")
-//        viewModel.getFibonacci(from: 0, to: Int64(10000), callback: { fibonacciList in
-//            XCTAssertEqual(fibonacciList[160], 55)
-//            randomElementExpectation.fulfill()
-//        })
-//        wait(for: [randomElementExpectation], timeout: 10.0)
-//    }
 }

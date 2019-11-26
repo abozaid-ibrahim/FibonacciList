@@ -8,34 +8,55 @@
 
 import Foundation
 protocol FibonacciTableViewModelType {
-    func getFibonacci(from: Int64, to: Int64, callback: @escaping ([UInt64]) -> Void)
+    func getFibonacci(of number: Int, callback: @escaping ([Int: UInt64]) -> Void)
 }
 
-struct FibonacciTableViewModel: FibonacciTableViewModelType {
+final class FibonacciTableViewModel: FibonacciTableViewModelType {
     // MARK: properties
 
-    private var fibonacciList: [UInt64] = []
+    private var fibMemoList: [Int: UInt64] = [:]
 
-    func getFibonacci(from: Int64 = 0, to: Int64, callback: @escaping ([UInt64]) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            var fibonacciList: [UInt64] = []
-            for index in from...to {
-                if index == 0 {
-                    fibonacciList.append(0)
-                } else if index == 1 {
-                    fibonacciList.append(1)
-                } else {
-                    if fibonacciList.count >= 2 { /// check if list have at lest 2 element
-                        let prevIndex = fibonacciList.count - 1
-                        let value = fibonacciList[prevIndex].addingReportingOverflow(fibonacciList[prevIndex - 1])
-                        if value.overflow {
-                            break
-                        }
-                        fibonacciList.append(value.partialValue)
-                    }
-                }
-            }
-            callback(fibonacciList)
+    func getFibonacci(of number: Int, callback: @escaping ([Int: UInt64]) -> Void) {
+        // TODO: Use NSThread to change stack size and accept bigger numbers
+        DispatchQueue.global().sync { [weak self] in
+            guard let self = self else { return }
+            _ = try? self.fibonacci(of: number)
+            callback(self.fibMemoList)
         }
     }
+
+    private func fibonacci(of number: Int) throws -> UInt64 {
+        /// base
+        guard number != 0, number != 1 else {
+            fibMemoList[number] = UInt64(number)
+            return UInt64(number)
+        }
+        // calculated Before
+        if let value2 = fibMemoList[number - 1] {
+            if let value1 = fibMemoList[number - 2] {
+                let value = value2.addingReportingOverflow(value1)
+                if value.overflow {
+                    throw Err.overflow
+                } else {
+                    fibMemoList[number] = value.partialValue
+                    return value.partialValue
+                }
+            }
+        }
+        // calculate New
+        guard let value = try? fibonacci(of: number - 1).addingReportingOverflow(fibonacci(of: number - 2)) else {
+            throw Err.overflow
+        }
+
+        if value.overflow {
+            throw Err.overflow
+        } else {
+            fibMemoList[number] = value.partialValue
+            return value.partialValue
+        }
+    }
+}
+
+enum Err: Error {
+    case overflow
 }

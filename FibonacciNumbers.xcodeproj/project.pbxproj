@@ -103,7 +103,6 @@
 		6C1A5FB9238ADFD0002F0FA1 /* scenes */ = {
 			isa = PBXGroup;
 			children = (
-				6C1A5FBB238AE047002F0FA1 /* Extensions */,
 				6C1A5FBA238ADFD6002F0FA1 /* fibonacci-list */,
 			);
 			path = scenes;
@@ -117,13 +116,6 @@
 				6C1A5F96238ADE6B002F0FA1 /* Main.storyboard */,
 			);
 			path = "fibonacci-list";
-			sourceTree = "<group>";
-		};
-		6C1A5FBB238AE047002F0FA1 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475YN7ANSF;
 				INFOPLIST_FILE = FibonacciNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475YN7ANSF;
 				INFOPLIST_FILE = FibonacciNumbers/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
