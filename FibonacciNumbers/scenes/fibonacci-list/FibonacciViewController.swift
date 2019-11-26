@@ -29,7 +29,7 @@ final class FibonacciTableController: UITableViewController {
 }
 
 extension FibonacciTableController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return fibonacciList.count
     }
 
