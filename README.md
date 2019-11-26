@@ -35,3 +35,5 @@ One of the benefits of using MVVM is testing.
 This is for group of app scenes: numbers list
 
 
+## Improvements
+* calculate the page size dynamically and use NSThread with custom stack size to calculate bigger numbers
